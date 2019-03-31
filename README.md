@@ -7,11 +7,14 @@ The goal of FarsDataAnalysisPD is to provides tools to read and summarize data f
 Installation
 ------------
 
-You can install the released version of FarsDataAnalysisPD from [CRAN](https://CRAN.R-project.org) with:
+To install `FarsDataAnalysisPD`, please first ensure you have installed and loaded the `devtools` package. Then, run the following:
 
 ``` r
-install.packages("FarsDataAnalysisPD")
+install_github('link')
+library(FarsDataAnalysisPD)
 ```
 
-Example
--------
+Vignette
+--------
+
+For an introduction to the `FarsDataAnalysisPD package`, refer to the vignette: `vignette('Vignette_FarsDataAnalysisPD', package = 'FarsDataAnalysisPD')`.
