@@ -17,3 +17,7 @@ Imports:
     magrittr (>= 1.5),
     readr (>= 1.1.1), 
     tidyr (>= 0.8.1)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
