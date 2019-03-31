@@ -23,3 +23,8 @@ Travis Badge
 ------------
 
 [![Travis build status](https://travis-ci.com/Paul-Draper/FarsDataAnalysisPD.svg?branch=master)](https://travis-ci.com/Paul-Draper/FarsDataAnalysisPD)
+
+Appveyor Badge
+--------------
+
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/Paul-Draper/FarsDataAnalysisPD?branch=master&svg=true)](https://ci.appveyor.com/project/Paul-Draper/FarsDataAnalysisPD)
