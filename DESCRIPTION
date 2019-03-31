@@ -19,5 +19,6 @@ Imports:
     tidyr (>= 0.8.1)
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
