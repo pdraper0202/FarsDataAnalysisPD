@@ -19,7 +19,4 @@ Vignette
 
 For an introduction to the `FarsDataAnalysisPD package`, refer to the vignette: `vignette('Vignette_FarsDataAnalysisPD', package = 'FarsDataAnalysisPD')`.
 
-Travis Badge
-------------
-
 [![Travis build status](https://travis-ci.com/Paul-Draper/FarsDataAnalysisPD.svg?branch=master)](https://travis-ci.com/Paul-Draper/FarsDataAnalysisPD)

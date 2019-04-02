@@ -1,65 +1,72 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Vignette - FarsDataAnalysisPD"
+author: "Paul Draper"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{FarsDataAnalysisPD}
+  %\VignetteEngine{knitr::rmarkdown}  
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+```{r setenv, echo=FALSE, message=FALSE}
+library(FarsDataAnalysisPD)
+library(magrittr)
 ```
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+This vignette provides a brief introduction to using the `FarsDataAnalysisPD` package. This package provides tools to read and analyze the National Highway Traffic Safety Administration's (NHTSA) Fatality Analysis Reporting System (FARS) data. This package contains the following functions:
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+* make_filename
+* fars_read
+* fars_read_years
+* fars_summarize_years
+* fars_map_state
 
-## Vignette Info
+## Raw Data
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+This package includes FARS data from three years: 2013, 2014, 2015. A snapshot of the 2013 data is as follows:
 
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```{r 2013_RawData, echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv(system.file("extdata", "accident_2013.csv.bz2", package = "FarsDataAnalysisPD")) %>% 
+  head(10)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+In the next sections, we will see how to read in and process this data.
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+## Read in FARS data
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+FARS data can either be read in for a single year or multiple years. To read in a single year of data, first utilize the `make_filename` function to create a filename for the given year of interest. Then, use `fars_read` to read in the file.
 
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{r echo=TRUE}
+setwd(file.path("..", "inst", "extdata"))
+FARS_data_2013_file <- make_filename(2013)
+FARS_data_2013 <- fars_read(FARS_data_2013_file)
 ```
 
-Also a quote using `>`:
+To read multiple years of data, use the `fars_read_years` function:
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+setwd(file.path("..", "inst", "extdata"))
+FARS_data_multiple <- fars_read_years(2013:2015)
+```
+
+This creates a list containing the individual data files. Of course, this function could be used to read a single year of data as well.
+
+## Summarizing FARS data
+
+To summarize the number of accidents by month for a set of years, use the `fars_summarize_years` function. For example, to summarize the accidents for years 2013 - 2014, run
+
+```{r}
+setwd(file.path("..", "inst", "extdata"))
+fars_summarize_years(2013:2014)
+```
+
+## Plot Accident Fatalities by State
+
+The `fars_map_state` function takes a state ID number and year, and produces a map of accident fatalities for the given state. 
+
+```{r}
+setwd(file.path("..", "inst", "extdata"))
+fars_map_state(1, 2013)
+```
+

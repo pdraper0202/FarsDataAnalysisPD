@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # FarsDataAnalysisPD
 
 The goal of FarsDataAnalysisPD is to provides tools to read and summarize data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, as well as generate maps of accident locations by state.
@@ -27,7 +28,5 @@ library(FarsDataAnalysisPD)
 ## Vignette
 
 For an introduction to the `FarsDataAnalysisPD package`, refer to the vignette: `vignette('Vignette_FarsDataAnalysisPD', package = 'FarsDataAnalysisPD')`.
-
-## Travis Badge
 
 [![Travis build status](https://travis-ci.com/Paul-Draper/FarsDataAnalysisPD.svg?branch=master)](https://travis-ci.com/Paul-Draper/FarsDataAnalysisPD)
