@@ -37,7 +37,7 @@ In the next sections, we will see how to read in and process this data.
 
 FARS data can either be read in for a single year or multiple years. To read in a single year of data, first utilize the `make_filename` function to create a filename for the given year of interest. Then, use `fars_read` to read in the file.
 
-```{r echo=TRUE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 setwd(file.path("..", "inst", "extdata"))
 FARS_data_2013_file <- make_filename(2013)
 FARS_data_2013 <- fars_read(FARS_data_2013_file)
