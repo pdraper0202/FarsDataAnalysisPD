@@ -38,7 +38,6 @@ In the next sections, we will see how to read in and process this data.
 FARS data can either be read in for a single year or multiple years. To read in a single year of data, first utilize the `make_filename` function to create a filename for the given year of interest. Then, use `fars_read` to read in the file.
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-setwd(file.path("..", "inst", "extdata"))
 FARS_data_2013_file <- make_filename(2013)
 FARS_data_2013 <- fars_read(FARS_data_2013_file)
 ```
@@ -46,7 +45,6 @@ FARS_data_2013 <- fars_read(FARS_data_2013_file)
 To read multiple years of data, use the `fars_read_years` function:
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-setwd(file.path("..", "inst", "extdata"))
 FARS_data_multiple <- fars_read_years(2013:2015)
 ```
 
@@ -57,7 +55,6 @@ This creates a list containing the individual data files. Of course, this functi
 To summarize the number of accidents by month for a set of years, use the `fars_summarize_years` function. For example, to summarize the accidents for years 2013 - 2014, run
 
 ```{r}
-setwd(file.path("..", "inst", "extdata"))
 fars_summarize_years(2013:2014)
 ```
 
@@ -66,7 +63,6 @@ fars_summarize_years(2013:2014)
 The `fars_map_state` function takes a state ID number and year, and produces a map of accident fatalities for the given state. 
 
 ```{r}
-setwd(file.path("..", "inst", "extdata"))
 fars_map_state(1, 2013)
 ```
 
