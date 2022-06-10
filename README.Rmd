@@ -21,7 +21,7 @@ The goal of FarsDataAnalysisPD is to provides tools to read and summarize data f
 To install `FarsDataAnalysisPD`, please first ensure you have installed and loaded the `devtools` package. Then, run the following:
 
 ```R
-install_github('link')
+install_github('https://github.com/pdraper0202/FarsDataAnalysisPD')
 library(FarsDataAnalysisPD)
 ```
 

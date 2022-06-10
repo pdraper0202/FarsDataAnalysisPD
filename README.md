@@ -10,7 +10,7 @@ Installation
 To install `FarsDataAnalysisPD`, please first ensure you have installed and loaded the `devtools` package. Then, run the following:
 
 ``` r
-install_github('link')
+install_github('https://github.com/pdraper0202/FarsDataAnalysisPD')
 library(FarsDataAnalysisPD)
 ```
 
